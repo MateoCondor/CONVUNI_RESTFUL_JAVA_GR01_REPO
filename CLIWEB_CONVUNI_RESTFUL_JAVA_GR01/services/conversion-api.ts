@@ -18,8 +18,8 @@ export type ConversionResponse = {
 };
 
 const defaultBaseUrl = Platform.select({
-  android: 'http://10.9.8.27:8080/WS_CONVUNI_RESTFUL_JAVA_GR01/resources/conversion',
-  default: 'http://localhost:8080/WS_CONVUNI_RESTFUL_JAVA_GR01/resources/conversion',
+  android: 'http://10.40.24.51:8080/WS_CONVUNI_RESTFUL_JAVA_GR01/resources/conversion',
+  default: 'http://10.40.24.51:8080/WS_CONVUNI_RESTFUL_JAVA_GR01/resources/conversion',
 }) as string;
 
 const envBaseUrl = process.env.EXPO_PUBLIC_API_BASE_URL?.trim();

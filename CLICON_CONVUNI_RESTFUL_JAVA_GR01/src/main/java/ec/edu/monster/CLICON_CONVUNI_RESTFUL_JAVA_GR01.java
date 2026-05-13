@@ -12,7 +12,7 @@ import ec.edu.monster.views.UnitConversionView;
 public class CLICON_CONVUNI_RESTFUL_JAVA_GR01 {
 
     public static void main(String[] args) {
-        GenericRestConsumer client = new GenericRestConsumer("http://localhost:8080/WS_CONVUNI_RESTFUL_JAVA_GR01");
+        GenericRestConsumer client = new GenericRestConsumer("http://10.40.24.51:8080/WS_CONVUNI_RESTFUL_JAVA_GR01");
 
         AuthService authService = new AuthService(client);
         LoginView loginView = new LoginView();
