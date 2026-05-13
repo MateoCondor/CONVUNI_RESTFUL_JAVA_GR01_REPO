@@ -11,37 +11,6 @@
         <exec.mainClass>ec.edu.monster.CLICON_CONVUNI_RESTFUL_JAVA_GR01</exec.mainClass>
     </properties>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.openapitools</groupId>
-                <artifactId>openapi-generator-maven-plugin</artifactId>
-                <version>7.4.0</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <inputSpec>http://localhost:8080/openapi?format=JSON</inputSpec>
-                            
-                            <generatorName>java</generatorName>
-                            <library>native</library>
-                            
-                            <packageName>ec.edu.monster.clients.rest</packageName>
-                            <apiPackage>ec.edu.monster.clients.rest.api</apiPackage>
-                            <modelPackage>ec.edu.monster.clients.rest.model</modelPackage>
-                            
-                            <configOptions>
-                                <sourceFolder>src/main/java</sourceFolder>
-                                <useJakartaEe>true</useJakartaEe> </configOptions>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
-
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -53,29 +22,6 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>2.17.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.datatype</groupId>
-            <artifactId>jackson-datatype-jsr310</artifactId>
-            <version>2.17.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-            <version>2.17.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.openapitools</groupId>
-            <artifactId>jackson-databind-nullable</artifactId>
-            <version>0.2.6</version>
-        </dependency>
-        
-        <dependency>
-            <groupId>jakarta.annotation</groupId>
-            <artifactId>jakarta.annotation-api</artifactId>
-            <version>2.1.1</version>
-            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>
