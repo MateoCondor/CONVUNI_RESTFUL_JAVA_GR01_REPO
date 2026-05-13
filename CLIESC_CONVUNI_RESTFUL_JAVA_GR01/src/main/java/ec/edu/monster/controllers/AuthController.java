@@ -2,9 +2,7 @@ package ec.edu.monster.controllers;
 
 import javax.swing.SwingUtilities;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import ec.edu.monster.clients.rest.api.DefaultApi;
+import ec.edu.monster.api.GenericRestConsumer;
 import ec.edu.monster.services.AuthService;
 import ec.edu.monster.services.UnitConversionService;
 import ec.edu.monster.views.ILoginView;
@@ -14,14 +12,12 @@ import ec.edu.monster.views.UnitConversionView;
 public class AuthController {
     private final ILoginView view;
     private final AuthService service;
-    private final DefaultApi client;
-    private final ObjectMapper mapper;
+    private final GenericRestConsumer client;
 
-    public AuthController(ILoginView view, AuthService service, DefaultApi client, ObjectMapper mapper) {
+    public AuthController(ILoginView view, AuthService service, GenericRestConsumer client) {
         this.view = view;
         this.service = service;
         this.client = client;
-        this.mapper = mapper;
         this.view.setSubmitListener(e -> login());
     }
 
@@ -40,7 +36,7 @@ public class AuthController {
                             return;
                         }
 
-                        UnitConversionService unitConversionService = new UnitConversionService(client, mapper);
+                        UnitConversionService unitConversionService = new UnitConversionService(client);
 
                         IUnitConversionView unitConversionView = new UnitConversionView();
 

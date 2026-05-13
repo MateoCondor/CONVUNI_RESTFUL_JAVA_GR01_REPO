@@ -4,6 +4,7 @@ import java.util.concurrent.CompletableFuture;
 
 import ec.edu.monster.api.GenericRestConsumer;
 import ec.edu.monster.dto.UnitConversionRequest;
+import ec.edu.monster.dto.UnitConversionResponse;
 import ec.edu.monster.models.LengthConversion;
 import ec.edu.monster.models.MassConversion;
 import ec.edu.monster.models.TemperatureConversion;
@@ -36,7 +37,8 @@ public class UnitConversionService {
     private CompletableFuture<UnitConversionResult> callConversionApi(String path, UnitConversionRequest request) {
         return CompletableFuture.supplyAsync(() -> {
             try {
-                return consumer.post(path, request, UnitConversionResult.class);
+                UnitConversionResponse response = consumer.post(path, request, UnitConversionResponse.class);
+                return new UnitConversionResult(response.convertedValue(), response.message());
             } catch (RuntimeException ex) {
                 throw new RuntimeException("Error en el servidor de conversión: " + ex.getMessage());
             } catch (Exception ex) {

@@ -15,8 +15,20 @@ public class LoginView {
 
         System.out.println("=== CLICON RESTFUL - JAVA GR01 ===");
         System.out.println("=== INICIO DE SESIÓN ===");
+
+        try {
+            while (System.in.available() > 0) {
+                System.in.read();
+            }
+        } catch (Exception e) {
+        }
+
         System.out.print("Usuario: ");
         String user = scanner.nextLine();
+
+        if (user.isEmpty()) {
+            user = scanner.nextLine();
+        }
 
         System.out.print("Contraseña: ");
         String pass = readPassword();
